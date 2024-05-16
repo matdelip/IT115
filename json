@@ -1,0 +1,43 @@
+#import json
+import json
+#create the data '' dictionary
+data = {
+
+    'name': 'John Doe',
+    'age': 30,
+    'city': 'New York, NY',
+    'interests': ['Golf', 'Running', 'Football', 'Traveling'],
+    'is_student': False
+}
+
+#creating a json and writing the python object content using json.dump method.
+with open('data.json','w') as json_file:
+    #converting to json_file
+    json.dump(data,json_file,indent=4)
+#Test the conversion worked.
+print("Data has been written to data.json")
+
+
+
+# Reading data file
+with open('data.json','r') as json_file:
+
+# create object where you load data from json-file
+    loaded_data = json.load(json_file)
+
+#Test
+print("Successfully able to read data.json")
+print(loaded_data)
+
+#Make changes to json_file
+loaded_data['age'] = 34
+loaded_data['interests'].append('History')
+
+#loaded_data['interests'].remove('Put your string here')
+
+#Rewrite the changes to the json file.
+with open('data.json','w') as json_file:
+
+    json.dump(loaded_data,json_file,indent=4)
+
+print("Data has been re-written to data.json")
